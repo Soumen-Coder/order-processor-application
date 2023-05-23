@@ -66,7 +66,7 @@ Contributions to the Order Processing Application are welcome! If you have any i
 This project is licensed under the <a href="https://opensource.org/licenses/MIT">MIT License</a>.
 
 <h2>Acknowledgements</h2>
-<a href="https://docs.oracle.com/en/java/">Java Documentation</a> - Official Java documentation for reference.
+<a href="https://docs.oracle.com/en/java/">Java Documentation</a> - Official Java documentation for reference.</br>
 
 <a href="https://docs.oracle.com/javase/tutorial/essential/concurrency/forkjoin.html">Fork/Join Framework</a> - Oracle's tutorial on the Fork/Join framework in Java.
 
