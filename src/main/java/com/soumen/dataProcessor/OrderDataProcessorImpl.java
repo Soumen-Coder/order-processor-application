@@ -2,28 +2,41 @@ package com.soumen.dataProcessor;
 
 import com.soumen.dataReader.DataReader;
 import com.soumen.logger.OrderLogger;
+import com.soumen.logger.OrderLoggerFactory;
 import com.soumen.model.Order;
 import com.soumen.orderPersister.OrderDataPersister;
+import com.soumen.orderPersister.OrderPersister;
 import com.soumen.orderSplitter.OrderDataSplitter;
+import com.soumen.orderSplitter.OrderSplitter;
 
 import java.util.List;
 import java.util.Map;
 import java.util.concurrent.ForkJoinPool;
 
+/**
+ * Processes orders by splitting them based on country and persisting the orders.
+ * Implements the DataProcessor Interface for handling order processing operations.
+ */
 public class OrderDataProcessorImpl implements DataProcessor{
 
     private final DataReader dataReader;
-    private final OrderDataSplitter orderDataSplitter;
-    private final OrderDataPersister orderDataPersister;
+    private final OrderSplitter orderDataSplitter;
+    private final OrderPersister orderDataPersister;
     private final OrderLogger logger;
 
-    public OrderDataProcessorImpl(DataReader dataReader, OrderDataSplitter orderDataSplitter, OrderDataPersister orderDataPersister, OrderLogger logger) {
+    public OrderDataProcessorImpl(DataReader dataReader, OrderSplitter orderDataSplitter, OrderPersister orderDataPersister, OrderLogger logger) {
         this.dataReader = dataReader;
         this.orderDataSplitter = orderDataSplitter;
         this.orderDataPersister = orderDataPersister;
         this.logger = logger;
     }
 
+    public static OrderDataProcessorImpl create(DataReader dataReader, OrderSplitter orderDataSplitter, OrderPersister orderDataPersister) {
+        OrderLogger logger = OrderLoggerFactory.getLogger(); // Obtain the logger from a factory
+        return new OrderDataProcessorImpl(dataReader, orderDataSplitter, orderDataPersister, logger);
+    }
+
+    //Method to process orders and persist them
     @Override
     public void processDataOrders() {
         //Read the order from the csv file
@@ -46,6 +59,10 @@ public class OrderDataProcessorImpl implements DataProcessor{
         orderDataPersister.persistDataOrders(ordersByCountryMap);
     }
 
+    /**
+     * Splits orders by country.
+     * @return Map<String, List<Order>>
+     */
     @Override
     public Map<String, List<Order>> splitDataOrdersByCountry(List<Order> orders) {
         return orderDataSplitter.splitDataOrdersByCountry(orders);

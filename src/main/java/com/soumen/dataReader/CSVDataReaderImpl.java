@@ -9,6 +9,11 @@ import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * Reads orders from a CSV file using the DataReader abstraction.
+ * Implements the readDataOrders() method to parse the CSV file.
+ */
+
 public class CSVDataReaderImpl implements DataReader{
 
     private final String filePath;
@@ -18,6 +23,8 @@ public class CSVDataReaderImpl implements DataReader{
         this.filePath = filePath;
         this.orderParser = orderParser;
     }
+
+    //This method reads data from a dataSource
     @Override
     public List<Order> readDataOrders() {
         List<Order> orders = new ArrayList<>();
