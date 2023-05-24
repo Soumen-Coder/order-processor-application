@@ -44,9 +44,17 @@ Ensure that you have Java Development Kit (JDK) installed on your machine.
    
    `OrderSplitter` - Defines contract for splitting data from a data source.
    
-   `OrderDataSplitter` - Splits the order based on the country name
+   `OrderDataSplitter` - Splits the order based on the country name.
    
-   `OrderProcessorApplication` - This marks the starting point of the application
+   `OrderDataProcessorTest` - This class is responsible for testing the process data order functionality.
+   
+   `MockCSVReader` - This class is responsible for mocking a csv reader.
+   
+   `MockOrderDataSplitter` - This class is responsible for mocking the orderDataSplitter class.
+   
+   `MockOrderDataPersister` - his class is responsible for mocking the OrderDataPersister class.
+   
+   `OrderProcessorApplication` - This marks the starting point of the application.
 
 
 
