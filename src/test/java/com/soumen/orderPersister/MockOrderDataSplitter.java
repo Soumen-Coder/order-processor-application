@@ -8,6 +8,9 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+/**
+ * This class is responsible for mocking the {@link com.soumen.orderSplitter.OrderDataSplitter}
+ */
 public class MockOrderDataSplitter implements OrderSplitter {
 
     private boolean IsSplitOrdersCalled;

@@ -5,7 +5,9 @@ import com.soumen.model.Order;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
-
+/**
+ * This class is responsible for mocking a csv reader.
+ */
 public class MockCSVReader implements DataReader {
     private boolean readDataCalled;
 

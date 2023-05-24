@@ -2,11 +2,13 @@ package com.soumen.orderSplitter;
 
 import com.soumen.model.Order;
 import com.soumen.orderPersister.OrderPersister;
-import org.junit.jupiter.api.Test;
 
 import java.util.List;
 import java.util.Map;
 
+/**
+ * This class is responsible for mocking the {@link com.soumen.orderPersister.OrderDataPersister}
+ */
 public class MockOrderDataPersister implements OrderPersister {
 
     private boolean persistOrdersCalled;

@@ -17,7 +17,9 @@ import java.util.List;
 import java.util.Map;
 
 import static org.junit.jupiter.api.Assertions.*;
-
+/**
+* This class is responsible for testing the process data order functionality
+ */
 public class OrderDataProcessorTest {
 
     // Test case for the processOrders method
@@ -25,18 +27,22 @@ public class OrderDataProcessorTest {
     public void testProcessDataOrders() {
         // Create necessary test data, mocks, and expectations
         List<Order> orders = createTestOrders();
-        // Create a mock OrderPersister instance
+
+
+        // Create a mock MockOrderDataPersister instance
         MockOrderDataPersister orderPersister = new MockOrderDataPersister();
+
+        //Create a MockCSVReader instance
         DataReader dataReader = new MockCSVReader();
+
+        //Create a MockOrderDataSplitter
         OrderSplitter orderSplitter = new MockOrderDataSplitter();
 
-        // Create an instance of OrderProcessor
+        // Create an instance of OrderDataProcessorImpl
         DataProcessor dataProcessor = OrderDataProcessorImpl.create(dataReader, orderSplitter, orderPersister);
 
         // Invoke the method being tested
         dataProcessor.processDataOrders();
-
-        // Assert the expected results or behavior
 
         // Verify that the OrderPersister's persistOrders method was called with the correct orders
         assertTrue(orderPersister.isPersistOrdersCalled());
@@ -47,14 +53,17 @@ public class OrderDataProcessorTest {
     @Test
     public void testSplitDataOrdersByCountry() {
         // Test case for the splitOrdersByCountry method
-        // Test case for the splitOrdersByCountry method
 
-        // Create a mock OrderPersister instance
+        // Create a mock MockOrderDataPersister instance
         MockOrderDataPersister orderPersister = new MockOrderDataPersister();
+
+        //Create a MockCSVReader instance
         DataReader dataReader = new MockCSVReader();
+
+        //Create a MockOrderDataSplitter
         OrderSplitter orderSplitter = new MockOrderDataSplitter();
 
-        // Create an instance of OrderProcessor
+        // Create an instance of OrderDataProcessorImpl
         DataProcessor dataProcessor = OrderDataProcessorImpl.create(dataReader, orderSplitter, orderPersister);
 
         // Invoke the method being tested
@@ -87,8 +96,6 @@ public class OrderDataProcessorTest {
         order2.setEmailId("email2@email.com");
         order2.setPhoneNumber("258 852828436");
         order2.setParcelWeight(1.33);
-
-        // Create and add test orders to the list
 
         return new ArrayList<>(Arrays.asList(order1, order2));
     }
