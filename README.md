@@ -52,19 +52,25 @@ Ensure that you have Java Development Kit (JDK) installed on your machine.
 
 <h2>Method usages</h2>
 
-   `splitDataOrdersByCountry(List<Order> orders)` - This method id required to split order by country
+   `splitDataOrdersByCountry(List<Order> orders)` - This method id required to split order by country.
 	
-   `processDataOrders()` - This method process data from a data source
+   `processDataOrders()` - This method process data from a data source.
 	
-	 `readDataOrders()` - This method reads orders from a dataSource
+   `readDataOrders()` - This method reads orders from a data source.
 	
    `parseOrder(String line)` - This method is responsible for parsing data orders.
     
-   `persistDataOrders(Map<String, List<Order>> ordersByCountry)` - This method is responsible for persisting data orders n whatever system required
+   `persistDataOrders(Map<String, List<Order>> ordersByCountry)` - This method is responsible for persisting data orders n whatever system required.
 	
-   `splitDataOrdersByCountry(List<Order> orders)` - This method splits the data based on the country
+   `splitDataOrdersByCountry(List<Order> orders)` - This method splits the data based on the country.
+   
+   `log(String message)`  - This method is responsible for logging messages.
+   
+   `error(String message)`  - This method is responsible for logging error messages.
+   
+   `getLogger()` - This method returns an instance of the logger.
 	
-	  `main(String[] args)` - This method marks the start of the application
+   `main(String[] args)` - This method marks the start of the application.
 
 <h2>Usage</h2>
 Open a terminal or command prompt.
